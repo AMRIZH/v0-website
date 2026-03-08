@@ -1,5 +1,6 @@
 services:
   reciterecipe:
+    container_name: v0_recite_recipe_app
     build:
       context: .
       dockerfile: Dockerfile
@@ -7,8 +8,7 @@ services:
         - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
         - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
         - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:3005}
-        - NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL=${NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL}
-      container_name: v0_recite_recipe_app
+        - NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL=${NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL:-}
     ports:
       - "${APP_PORT:-3005}:3000"
     environment:
